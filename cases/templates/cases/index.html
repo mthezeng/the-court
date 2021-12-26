@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Cases - The Court</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<div style="text-align: center;">
+
+  <h1>EQUAL JUSTICE UNDER LAW</h1>
+  <p>
+      "It is emphatically the province and duty of the judicial department to say what the law is."
+      —<i>Marbury v. Madison</i>, 5 U.S. (1 Cranch) 137, 177 (1803)
+  </p>
+</div>
+<hr>
+<h3>Featured cases</h3>
+{% if featured_case_list %}
+
+{% for case in featured_case_list %}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><i>{{ case.caption }}</i></h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ case.citation }}</h6>
+    <p class="card-text">{{ case.summary }}</p>
+    <a href="/cases/{{ case.id }}" class="btn btn-primary">View</a>
+    <a href="/admin/cases/case/{{ case.id }}/change/" class="btn btn-secondary">Manage</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endif %}
+{% endblock %}
+

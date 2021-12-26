@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{ case.caption }} - The Court</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<h1><i>{{ case.caption }}</i></h1>
+<p>{{ case.citation }}</p>
+<p>{{ case.summary }}</p>
+{% endblock %}
